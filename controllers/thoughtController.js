@@ -1,4 +1,4 @@
-const { Thought, Student } = require('../models');
+const { Thought, User } = require('../models');
 
 module.exports = {
   // Get all courses
@@ -65,7 +65,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  
+
   // Delete a course
   async deleteThought(req, res) {
     try {
