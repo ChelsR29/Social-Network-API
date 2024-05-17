@@ -13,7 +13,7 @@ module.exports = {
   // Get a course
   async getThoughtById(req, res) {
     try {
-      const thought = await Thought.findOne({ _id: req.params.thoughtId })
+      const thought = await Thought.findById({ _id: req.params.thoughtId })
 
       if (!thought) {
         return res.status(404).json({ message: 'No thought with that ID' });
@@ -50,7 +50,7 @@ module.exports = {
   // Update a course
   async updateThoughtbyId(req, res) {
     try {
-      const thought = await Thought.findOneAndUpdate(
+      const thought = await Thought.findByIdAndUpdate(
         { _id: req.params.thoughtId },
         { $set: req.body },
         { runValidators: true, new: true }
